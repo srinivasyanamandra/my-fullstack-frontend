@@ -70,21 +70,26 @@ export const Projects = () => {
                     </Tab.Pane>
             
                     <Tab.Pane eventKey="first">
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
                         
-                        {/* Image and Paragraph Row */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'center', width: '100%' }}>
+                        {/* Image and Paragraph Container */}
+                        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
                           
-                          {/* Image on the Left with more left space */}
+                          {/* Responsive Image */}
                           <img
                             src={gp}
                             alt="Placeholder"
-                            style={{ width: '300px', height: '300px', borderRadius: '8px', marginLeft: '200px' }} // Adjust left margin here
+                            style={{ 
+                              width: '100%', 
+                              maxWidth: '300px', 
+                              height: 'auto', 
+                              borderRadius: '8px' 
+                            }} 
                           />
 
-                          {/* Paragraph on the Right */}
-                          <div className="col" style={{ maxWidth: '1000px' }}> {/* Adjust right spacing */}
-                            <p style={{ lineHeight: '1.25' }}>
+                          {/* Text Content */}
+                          <div className="col" style={{ maxWidth: '600px', textAlign: 'center' }}>
+                            <p style={{ lineHeight: '1.5' }}>
                               At GrapplTech, I worked as a Java Full Stack Developer, where I played a key role in designing, developing, and maintaining web applications. My responsibilities included building robust backend services using Java and Spring Boot, managing databases with MySQL, and developing dynamic user interfaces with React JS.
                               <br /><br />
                               During my time at GrapplTech, I collaborated with cross-functional teams to implement scalable and optimized solutions, ensuring high performance and security. I actively contributed to API development, database optimization, and CI/CD pipelines, which improved deployment efficiency and system reliability.
@@ -92,7 +97,7 @@ export const Projects = () => {
                           </div>
                         </div>
 
-                        {/* PDF View Option at the Bottom */}
+                        {/* PDF View Option */}
                         <div style={{ textAlign: 'center', marginTop: '20px' }}>
                           <button
                             className="btn btn-primary"
@@ -103,6 +108,7 @@ export const Projects = () => {
                         </div>
                       </div>
                     </Tab.Pane>
+
 
 
                     <Tab.Pane eventKey="second">
