@@ -1,5 +1,6 @@
-node_modules/
-build/
-*.md
-*.git
-*.idea
+node_modules
+build
+.dockerignore
+Dockerfile
+.git
+.gitignore
