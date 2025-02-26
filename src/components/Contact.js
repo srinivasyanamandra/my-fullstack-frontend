@@ -11,33 +11,35 @@ export const Contact = () => {
     email: '',
     phone: '',
     message: ''
-  }
+  };
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState({});
 
   const onFormUpdate = (category, value) => {
-      setFormDetails({
-        ...formDetails,
-        [category]: value
-      })
-  }
+    setFormDetails({
+      ...formDetails,
+      [category]: value
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
+
     try {
-      let response = await fetch("http://localhost:8080/api/contacts", {
+      const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://my-backend-wozl.onrender.com";  // Fallback URL
+      let response = await fetch(`${API_BASE_URL}/api/contacts`, {  // Fixed syntax error
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formDetails),
       });
-  
+
       let result = await response.json();
       setFormDetails(formInitialDetails);
-  
+
       if (response.ok) {
         setStatus({ success: true, message: "Message sent successfully" });
       } else {
@@ -49,8 +51,6 @@ export const Contact = () => {
       setButtonText("Send");
     }
   };
-  
-  
 
   return (
     <section className="contact" id="connect">
@@ -74,7 +74,7 @@ export const Contact = () => {
                       <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
                     </Col>
                     <Col size={12} sm={6} className="px-1">
-                      <input type="text" value={formDetails.lasttName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/>
+                      <input type="text" value={formDetails.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/> {/* Fixed Typo */}
                     </Col>
                     <Col size={12} sm={6} className="px-1">
                       <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />
@@ -100,5 +100,5 @@ export const Contact = () => {
         </Row>
       </Container>
     </section>
-  )
-}
+  );
+};
