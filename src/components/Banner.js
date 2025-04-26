@@ -50,15 +50,15 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+      <Row className="align-items-center flex-column flex-md-row">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio<big> :)</big></span>
-                <h1>{`Hi! I'm Srinivas Yanamandra`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Java Developer", "Java Developer", "DevOps" ]'><span className="wrap">{text}</span></span></h1>
+                <h1>{`Hi! I'm Srinivas Yanamandra`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Java Developer", "DevOps" ]'><span className="wrap">{text}</span></span></h1>
                   <p>Welcome to my portfolio! I specialize in building scalable, high-performance applications using Java, Spring Boot, and React. With a keen eye for detail and a passion for problem-solving, I love turning ideas into reality through clean and efficient code.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <button onClick={() =>  console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
           </Col>
